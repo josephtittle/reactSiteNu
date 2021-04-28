@@ -21,7 +21,7 @@ function RenderCampsite({ campsite }) {
     )
 }
 
-function RenderComments({ comments, addComment, campsiteID }) {
+function RenderComments({ comments, addComment, campsiteId }) {
     if (comments) {
         return (
             <div className="col-md-5 m-1">
@@ -35,7 +35,7 @@ function RenderComments({ comments, addComment, campsiteID }) {
                         </div>
                     );
                 })}
-                <CommentForm campsiteID={campsiteID} addComment={addComment} />
+                <CommentForm campsiteId={campsiteId} addComment={addComment} />
             </div>
         );
     }
@@ -117,7 +117,7 @@ class CommentForm extends Component {
                                 <Label htmlFor="text">Comment</Label>
                                 <Control.textarea model=".text" name="text" rows="6" className="form-control" />
                             </div>
-                            <Button type="Submit" className=" btn btn-primary text-light" outline onClick={this.toggleModal} >Submit</Button>
+                            <Button type="submit" className=" btn btn-primary text-light" outline onClick={this.toggleModal}>Submit</Button>
                         </LocalForm>
                     </ModalBody>
                 </Modal>
@@ -127,6 +127,7 @@ class CommentForm extends Component {
 }
 
 function CampsiteInfo(props) {
+    console.log("props", props)
     if (props.campsite) {
         return (
             <div className="container">
@@ -145,7 +146,7 @@ function CampsiteInfo(props) {
                     <RenderComments
                         comments={props.comments}
                         addComment={props.addComment}
-                        campsiteID={props.campsite.id}
+                        campsiteId={props.campsite.id}
                     />
                 </div>
             </div>
